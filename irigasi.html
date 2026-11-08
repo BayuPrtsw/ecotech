@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Irrigation | EcoTech</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" id="nav" aria-label="Navigasi utama"></nav>
+
+  <main>
+    <header class="page-head">
+      <h1>Smart Irrigation</h1>
+      <p>Irigasi cerdas menyiram tanaman berdasarkan kebutuhan nyata, bukan jadwal tebakan. Sensor membaca kelembapan tanah, pengendali memutuskan, pompa bekerja.</p>
+    </header>
+
+    <section>
+      <h2>Komponen utama</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Sensor kelembapan tanah</h3>
+          <p>Mengukur kadar air di tanah dan mengirim angkanya ke pengendali.</p>
+        </div>
+        <div class="card">
+          <h3>Pengendali</h3>
+          <p>Mikrokontroler (misalnya Arduino atau ESP32) yang membandingkan data dengan batas dan mengambil keputusan.</p>
+        </div>
+        <div class="card">
+          <h3>Relay dan pompa</h3>
+          <p>Relay menjadi saklar elektronik yang menyalakan atau mematikan pompa air sesuai perintah pengendali.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Logika kontrolnya</h2>
+      <p>Logika irigasi otomatis adalah percabangan (if-else) yang dijalankan terus-menerus. Simulasi di bawah memakai aturan ini:</p>
+      <div class="code" aria-label="Logika kontrol pompa">
+        <div id="r1">JIKA kelembapan &lt; 40%  →  pompa ON</div>
+        <div id="r2">JIKA TIDAK, JIKA kelembapan &ge; 70%  →  pompa OFF</div>
+        <div id="r3">JIKA TIDAK  →  pertahankan keadaan pompa</div>
+      </div>
+      <p style="margin-top:14px"><strong>Kenapa dua batas, bukan satu?</strong> Kalau hanya ada satu batas, nilai sensor yang bergoyang sedikit di sekitar batas itu membuat pompa hidup-mati berulang kali dan cepat rusak. Dua batas membuat pompa bertahan di keadaan terakhirnya selama nilai berada di antara keduanya (disebut histeresis).</p>
+    </section>
+
+    <section>
+      <h2>Simulasi interaktif</h2>
+      <p>Geser slider untuk mengubah kelembapan tanah, atau tekan tombol simulasi otomatis dan amati pompa bekerja sendiri.</p>
+      <div class="sim">
+        <div>
+          <label for="moisture">Kelembapan tanah</label>
+          <div class="readout"><span id="moistureVal">55</span>%</div>
+          <input type="range" id="moisture" min="0" max="100" value="55" step="1">
+          <div class="pump-row">
+            <span>Pompa:</span>
+            <span class="pump off" id="pump" aria-live="polite">OFF</span>
+          </div>
+          <p id="status" aria-live="polite">Kelembapan cukup. Pompa mati.</p>
+          <div class="controls">
+            <button class="btn" id="auto" type="button">Mulai simulasi otomatis</button>
+            <button class="btn ghost" id="reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div>
+          <div class="soil" aria-label="Visual kadar air tanah">
+            <div class="soil-fill" id="fill"></div>
+            <div class="mark" style="bottom:40%"><span>Batas bawah 40%</span></div>
+            <div class="mark" style="bottom:70%"><span>Batas atas 70%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Keuntungan dan keterbatasan</h2>
+      <div class="two-col">
+        <div class="pro">
+          <h3>Keuntungan</h3>
+          <ul>
+            <li>Air dipakai sesuai kebutuhan tanaman, bukan berlebihan.</li>
+            <li>Tidak bergantung pada petani yang harus menyiram manual.</li>
+            <li>Dapat bekerja siang dan malam.</li>
+          </ul>
+        </div>
+        <div class="con">
+          <h3>Keterbatasan</h3>
+          <ul>
+            <li>Sensor harus dikalibrasi dan dapat berkarat bila lama di tanah.</li>
+            <li>Bergantung pada listrik dan koneksi perangkat.</li>
+            <li>Batas yang salah menghasilkan penyiraman yang salah.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="next">
+      <a class="btn ghost" href="hidroponik.html">← Hidroponik &amp; Aeroponik</a>
+      <a class="btn" href="monitoring.html">Berikutnya: Monitoring Tanaman →</a>
+    </div>
+  </main>
+
+  <footer>EcoTech · Media Pembelajaran Teknologi Lingkungan</footer>
+  <script src="js/nav.js"></script>
+  <script src="js/irigasi.js"></script>
+</body>
+</html>

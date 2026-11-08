@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hidroponik &amp; Aeroponik | EcoTech</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav" id="nav" aria-label="Navigasi utama"></nav>
+
+  <main>
+    <header class="page-head">
+      <h1>Hidroponik &amp; Aeroponik</h1>
+      <p>Dua cara bertanam tanpa tanah. Nutrisi diberikan lewat larutan air, bukan dari tanah. Bedanya ada pada posisi akar dan cara larutan sampai ke akar.</p>
+    </header>
+
+    <section>
+      <h2>Pelajari masing-masing sistem</h2>
+      <div class="tabs" role="tablist" aria-label="Pilih sistem">
+        <button class="tab" role="tab" id="btn-hidro" data-target="tab-hidro" aria-controls="tab-hidro" aria-selected="true">Hidroponik</button>
+        <button class="tab" role="tab" id="btn-aero" data-target="tab-aero" aria-controls="tab-aero" aria-selected="false">Aeroponik</button>
+      </div>
+
+      <div class="panel" id="tab-hidro" role="tabpanel" aria-labelledby="btn-hidro">
+        <h3>Hidroponik</h3>
+        <p>Akar tanaman tumbuh di dalam larutan nutrisi yang menggenang atau mengalir, atau di media tanpa tanah seperti rockwool, cocopeat, atau perlit. Sistem yang umum dipakai: NFT (aliran tipis), DWC (akar terendam), wick (sumbu), dan sistem tetes.</p>
+        <div class="two-col">
+          <div class="pro">
+            <h3>Kelebihan</h3>
+            <ul>
+              <li>Peralatan relatif sederhana dan terjangkau.</li>
+              <li>Penggunaan air lebih hemat dibanding bertanam di tanah.</li>
+              <li>Nutrisi bisa diatur dan dipantau langsung.</li>
+              <li>Tidak butuh lahan luas, cocok untuk perkotaan.</li>
+            </ul>
+          </div>
+          <div class="con">
+            <h3>Kekurangan</h3>
+            <ul>
+              <li>Larutan harus dijaga: pH, kepekatan nutrisi, dan suhu.</li>
+              <li>Penyakit akar dapat menyebar cepat lewat larutan yang sama.</li>
+              <li>Larutan yang terkena cahaya mudah ditumbuhi lumut.</li>
+              <li>Sistem yang mengandalkan pompa rentan saat listrik padam.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="tab-aero" role="tabpanel" aria-labelledby="btn-aero" hidden>
+        <h3>Aeroponik</h3>
+        <p>Akar menggantung di udara di dalam ruang tertutup, lalu dikabutkan dengan larutan nutrisi secara berkala memakai pompa bertekanan dan nozzle. Akar mendapat banyak oksigen karena tidak terendam.</p>
+        <div class="two-col">
+          <div class="pro">
+            <h3>Kelebihan</h3>
+            <ul>
+              <li>Akar mendapat oksigen sangat baik.</li>
+              <li>Umumnya paling hemat air dan nutrisi karena kabut terkontrol.</li>
+              <li>Akar mudah diamati dan dipanen.</li>
+              <li>Cocok diotomatisasi dengan timer atau sensor.</li>
+            </ul>
+          </div>
+          <div class="con">
+            <h3>Kekurangan</h3>
+            <ul>
+              <li>Peralatan lebih mahal dan rumit (pompa bertekanan, nozzle).</li>
+              <li>Nozzle mudah tersumbat endapan nutrisi.</li>
+              <li>Jika pompa atau listrik berhenti, akar cepat mengering.</li>
+              <li>Butuh ketelitian lebih tinggi bagi pemula.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tabel perbandingan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Aspek</th><th>Hidroponik</th><th>Aeroponik</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Posisi akar</th><td>Terendam atau dialiri larutan, atau berada di media inert</td><td>Menggantung di udara dalam ruang tertutup</td></tr>
+            <tr><th>Cara nutrisi sampai ke akar</th><td>Larutan menggenang atau mengalir</td><td>Kabut larutan disemprotkan berkala</td></tr>
+            <tr><th>Penggunaan air</th><td>Hemat</td><td>Umumnya lebih hemat lagi</td></tr>
+            <tr><th>Oksigen di akar</th><td>Perlu dibantu (mis. pompa udara) pada sistem terendam</td><td>Sangat baik</td></tr>
+            <tr><th>Biaya dan kerumitan</th><td>Lebih rendah, mudah dimulai</td><td>Lebih tinggi, perlu ketelitian</td></tr>
+            <tr><th>Risiko utama</th><td>Penyakit akar menyebar, lumut, pH melenceng</td><td>Nozzle tersumbat, akar kering saat pompa berhenti</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Mana yang cocok untukmu?</h2>
+      <p>Pilih prioritasmu, lalu lihat sistem yang paling masuk akal.</p>
+      <div class="choice" role="group" aria-label="Pilih prioritas">
+        <button class="btn ghost" data-pick="pemula">Baru mulai</button>
+        <button class="btn ghost" data-pick="air">Hemat air maksimal</button>
+        <button class="btn ghost" data-pick="modal">Modal terbatas</button>
+      </div>
+      <div class="result" id="result" aria-live="polite">Belum ada pilihan. Klik salah satu tombol di atas.</div>
+    </section>
+
+    <div class="next">
+      <a class="btn ghost" href="index.html">← Home</a>
+      <a class="btn" href="irigasi.html">Berikutnya: Smart Irrigation →</a>
+    </div>
+  </main>
+
+  <footer>EcoTech · Media Pembelajaran Teknologi Lingkungan</footer>
+  <script src="js/nav.js"></script>
+  <script src="js/hidroponik.js"></script>
+</body>
+</html>

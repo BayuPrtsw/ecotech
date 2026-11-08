@@ -1,0 +1,361 @@
+/* EcoTech - style.css (dipakai semua halaman) */
+
+:root {
+  --forest: #063C32;
+  --eco: #16866C;
+  --white: #F0EDE4;
+  --sage: #B8D9C0;
+  --river: #397F91;
+  --mist: #DCE9E9;
+  /* warna status khusus dashboard (di luar palet utama) */
+  --warn: #E0A526;
+  --bad: #B3392F;
+  --radius: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--forest);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 .5em; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h2 { font-size: 1.5rem; margin-top: 1.8em; }
+h3 { font-size: 1.15rem; }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.3em; margin: 0 0 1em; }
+li { margin-bottom: .35em; }
+
+a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-decoration-color: var(--river);
+  text-decoration-thickness: 2px;
+}
+
+main { max-width: 1000px; margin: 0 auto; padding: 24px 16px 56px; }
+
+/* ---------- Navigasi ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--forest);
+  padding: 10px 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.nav .brand { color: var(--sage); margin-right: 10px; font-size: 1.1rem; }
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: .95rem;
+}
+.nav a:hover { background: rgba(255, 255, 255, .12); }
+.nav a.active { background: var(--eco); font-weight: 700; }
+.nav a:focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; }
+
+/* ---------- Hero & header halaman ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--eco) 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  margin-bottom: 24px;
+}
+.hero p { max-width: 60ch; margin-bottom: 0; font-size: 1.1rem; }
+.eyebrow {
+  color: var(--sage);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .8rem;
+  margin-bottom: 8px;
+}
+
+.page-head {
+  background: var(--sage);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.page-head h1 { margin-bottom: .3em; }
+.page-head p { margin: 0; max-width: 65ch; }
+
+/* ---------- Kartu & grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--mist);
+  border: 1px solid var(--sage);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.card h3 { margin-top: 0; }
+a.card {
+  display: block;
+  color: var(--forest);
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+}
+a.card:hover, a.card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(6, 60, 50, .15);
+}
+a.card .more { font-weight: 700; text-decoration: underline; }
+
+/* ---------- Alur (flow) ---------- */
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 16px 0; }
+.chip {
+  background: var(--eco);
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+.arrow { font-weight: 800; }
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-block;
+  background: var(--eco);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover { background: var(--forest); }
+.btn.secondary { background: var(--river); }
+.btn.secondary:hover { background: var(--forest); }
+.btn.ghost { background: var(--sage); color: var(--forest); }
+.btn.ghost:hover { background: var(--mist); }
+.btn:focus-visible, .tab:focus-visible, .opt:focus-visible, input[type="range"]:focus-visible {
+  outline: 3px solid var(--river);
+  outline-offset: 2px;
+}
+.next { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
+
+/* ---------- Tab (hidroponik) ---------- */
+.tabs { display: flex; gap: 8px; margin: 16px 0; }
+.tab {
+  flex: 1;
+  background: var(--sage);
+  color: var(--forest);
+  border: 0;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { background: var(--eco); color: #fff; }
+.panel { background: var(--mist); border-radius: var(--radius); padding: 22px; }
+.panel[hidden] { display: none; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.pro, .con { background: var(--white); border-radius: 12px; padding: 16px; }
+.pro { border-left: 6px solid var(--eco); }
+.con { border-left: 6px solid var(--river); }
+.pro h3, .con h3 { margin-top: 0; }
+.pro ul, .con ul { margin-bottom: 0; }
+
+/* ---------- Tabel ---------- */
+.table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--sage); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; background: var(--white); }
+th, td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--sage); }
+thead th { background: var(--forest); color: #fff; }
+tbody th { background: var(--mist); width: 22%; }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+
+/* ---------- Pemilih "mana yang cocok" ---------- */
+.choice { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.result {
+  background: var(--white);
+  border-left: 6px solid var(--river);
+  border-radius: 12px;
+  padding: 14px 16px;
+  min-height: 3.4em;
+}
+
+/* ---------- Simulasi irigasi ---------- */
+.sim {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 20px;
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.sim label { display: block; font-weight: 700; margin-bottom: 6px; }
+input[type="range"] { width: 100%; accent-color: var(--eco); }
+.readout { font-size: 2.6rem; font-weight: 800; line-height: 1; margin: 6px 0 14px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+
+.soil {
+  position: relative;
+  height: 170px;
+  background: var(--white);
+  border: 2px solid var(--forest);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.soil-fill {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 55%;
+  background: var(--river);
+  transition: height .25s;
+}
+.mark { position: absolute; left: 0; right: 0; height: 0; border-top: 2px dashed var(--forest); }
+.mark span {
+  position: absolute;
+  left: 6px;
+  top: -1.45em;
+  background: var(--white);
+  color: var(--forest);
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+.pump-row { display: flex; align-items: center; gap: 12px; margin: 14px 0; }
+.pump {
+  display: inline-block;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+}
+.pump.on { background: var(--eco); color: #fff; }
+.pump.off { background: var(--sage); color: var(--forest); }
+
+.code {
+  background: var(--forest);
+  color: var(--mist);
+  border-radius: 12px;
+  padding: 14px;
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+.code div { padding: 5px 9px; border-radius: 6px; opacity: .6; }
+.code div.hl { opacity: 1; background: var(--eco); color: #fff; }
+
+/* ---------- Dashboard monitoring ---------- */
+.summary { border-radius: 12px; padding: 14px 18px; font-weight: 700; margin-bottom: 16px; }
+.summary.ok { background: var(--eco); color: #fff; }
+.summary.warn { background: var(--warn); color: var(--forest); }
+.summary.bad { background: var(--bad); color: #fff; }
+
+.sensor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.sensor {
+  background: var(--mist);
+  border: 1px solid var(--sage);
+  border-left: 8px solid var(--eco);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.sensor.warn { border-left-color: var(--warn); }
+.sensor.bad { border-left-color: var(--bad); }
+.sensor .name { font-weight: 700; }
+.sensor .value { font-size: 2.2rem; font-weight: 800; line-height: 1.15; }
+.sensor .unit { font-size: 1rem; font-weight: 600; }
+.sensor .range { font-size: .85rem; }
+.sensor .advice { font-size: .92rem; margin: 8px 0 0; min-height: 2.9em; }
+.pill { display: inline-block; font-size: .8rem; font-weight: 800; padding: 2px 10px; border-radius: 999px; }
+.pill.ok { background: var(--eco); color: #fff; }
+.pill.warn { background: var(--warn); color: var(--forest); }
+.pill.bad { background: var(--bad); color: #fff; }
+
+.track { position: relative; height: 10px; background: var(--white); border-radius: 999px; margin: 16px 0 8px; }
+.ideal-zone { position: absolute; top: 0; bottom: 0; background: var(--sage); border-radius: 999px; }
+.dot {
+  position: absolute;
+  top: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--forest);
+  border: 2px solid var(--white);
+  transform: translateX(-50%);
+  transition: left .4s;
+}
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+
+/* ---------- Kuis ---------- */
+.quiz { background: var(--mist); border-radius: var(--radius); padding: 22px; }
+.q { background: var(--white); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.q h3 { font-size: 1.05rem; }
+.opts { display: grid; gap: 8px; }
+.opt {
+  text-align: left;
+  background: var(--mist);
+  color: var(--forest);
+  border: 2px solid var(--sage);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.opt:hover:not(:disabled) { border-color: var(--river); }
+.opt:disabled { cursor: default; }
+.opt.right { background: var(--eco); border-color: var(--eco); color: #fff; }
+.opt.wrong { background: var(--bad); border-color: var(--bad); color: #fff; }
+.explain { margin: 10px 0 0; font-size: .95rem; }
+.score { font-size: 1.25rem; font-weight: 800; margin: 8px 0 12px; }
+
+/* ---------- Profil ---------- */
+.dev { text-align: center; }
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--sage);
+  background: var(--white);
+}
+.dev dl { text-align: left; margin: 16px 0 0; }
+.dev dt { font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; opacity: .75; }
+.dev dd { margin: 0 0 10px; font-weight: 600; }
+.tag {
+  display: inline-block;
+  background: var(--sage);
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 700;
+  margin: 2px 2px 2px 0;
+}
+/* penanda isian yang WAJIB diganti. Hapus class "todo" setelah diisi. */
+.todo { outline: 2px dashed var(--river); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- Footer ---------- */
+footer { background: var(--forest); color: var(--sage); text-align: center; padding: 20px 16px; font-size: .9rem; }
+
+/* ---------- Responsif ---------- */
+@media (max-width: 700px) {
+  .sim { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .hero { padding: 28px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
